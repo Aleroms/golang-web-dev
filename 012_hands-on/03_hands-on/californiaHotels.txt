@@ -1,0 +1,10 @@
+California Hotels by Region:
+{{range .}}
+{{.Region}}
+{{range .Hotels}}
+    - {{.Name}}
+      {{.Address}}
+      {{.City}}, {{.Zip}}
+      Rating: {{.Rating}}/5
+{{end}}
+{{end}}
