@@ -26,8 +26,19 @@ type year struct {
 
 var tpl *template.Template
 
+var funcMap = template.FuncMap{
+	"addOne": AddOne,
+}
+
 func init() {
-	tpl = template.Must(template.ParseFiles("tpl.gohtml"))
+	tpl = template.Must(template.New("").Funcs(funcMap).ParseFiles("tpl.gohtml"))
+	}
+
+//AddOne increments the parameter given and returns it back
+// to the user
+func AddOne(n int) int {
+	n++
+	return n
 }
 
 func main() {
@@ -72,8 +83,9 @@ func main() {
 		},
 	}
 
-	err := tpl.Execute(os.Stdout, nil)
+	err := tpl.ExecuteTemplate(os.Stdout, "tpl.gohtml", years)
 	if err != nil {
 		log.Fatalln(err)
 	}
 }
+

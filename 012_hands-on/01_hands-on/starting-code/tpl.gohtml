@@ -1,16 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Document</title>
-</head>
-<body>
-
+Information for this years courses!
 {{range .}}
-
-<!-- PUT YOUR CODE HERE TO SHOW THE DATA-->
-
+Academic Year {{.AcaYear}}
+{{if .Fall.Term}}
+Term: {{.Fall.Term}}
+- Courses:
+  {{range $index, $value := .Fall.Courses}}
+  {{addOne $index}}).  Code: {{.Number}}
+     Course: {{.Name}}
+     Units: {{.Units}}
+  {{end}}
 {{end}}
-
-</body>
-</html>
+{{if .Spring.Term}}
+Term: {{.Spring.Term}}
+- Courses:
+  {{range $index, $value := .Spring.Courses}}
+  {{addOne $index}}).  Code: {{.Number}}
+     Course: {{.Name}}
+     Units: {{.Units}}
+  {{end}}
+{{end}}
+{{if .Summer.Term}}
+Term: {{.Summer.Term}}
+- Courses:
+  {{range $index, $value := .Summer.Courses}}
+  {{addOne $index}}).  Code: {{.Number}}
+     Course: {{.Name}}
+     Units: {{.Units}}
+  {{end}}
+{{end}}
+{{end}}
