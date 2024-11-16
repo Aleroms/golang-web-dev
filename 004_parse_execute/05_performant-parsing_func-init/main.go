@@ -6,6 +6,7 @@ import (
 	"text/template"
 )
 
+// var tpl *template.Template
 var tpl *template.Template
 
 func init() {

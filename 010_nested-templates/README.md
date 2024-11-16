@@ -2,13 +2,16 @@
 
 [nested templates documentation](https://godoc.org/text/template#hdr-Nested_template_definitions)
 
-## define: 
-``` Go
+## define:
+
+```Go
 {{define "TemplateName"}}
 insert content here
 {{end}}
 ```
-## use: 
-``` Go
+
+## use:
+
+```Go
 {{template "TemplateName"}}
 ```
