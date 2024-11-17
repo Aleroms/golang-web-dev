@@ -1,0 +1,36 @@
+{{if .}}
+    {{- range .}}
+        {{ .Name}}
+        {{.Address}}
+        {{.City}}, {{.Zip}}
+        Rating {{.Rating}}/5
+        {{if .Menu}}
+            {{if .Menu.Breakfast}}
+            Breakfast:
+                {{range $index, $value := .Menu.Breakfast}}
+                    {{$index}}. {{.Name}}
+                    {{.Description}}
+                    Price {{.Price}}
+                {{end}}
+            {{end}}
+            {{if .Menu.Lunch}}
+            Lunch:
+                {{range $index, $value := .Menu.Lunch}}
+                    {{$index}}. {{.Name}}
+                    {{.Description}}
+                    Price {{.Price}}
+                {{end}}
+            {{end}}
+            {{if .Menu.Dinner}}
+            Dinner:
+                {{range $index, $value := .Menu.Dinner}}
+                    {{$index}}. {{.Name}}
+                    {{.Description}}
+                    Price {{.Price}}
+                {{end}}
+            {{end}}
+        {{end}}
+    {{end}}
+{{else}}
+NO RESTAURANTS 😔
+{{end}}

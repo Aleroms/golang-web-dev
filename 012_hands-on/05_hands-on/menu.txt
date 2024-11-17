@@ -1,0 +1,28 @@
+{{if .}}
+Menu
+{{if .Breakfast}}
+Breakfast:
+    {{range $index, $value := .Breakfast}}
+    {{$index}}. {{.Name}}
+    {{.Description}}
+    Price {{.Price}}
+    {{end}}
+{{end}}
+{{if .Lunch}}
+Lunch:
+    {{range $index, $value := .Lunch}}
+    {{$index}}. {{.Name}}
+    {{.Description}}
+    Price {{.Price}}
+    {{end}}
+{{end}}
+{{if .Dinner}}
+    {{range $index, $value := .Lunch}}
+    {{$index}}. {{.Name}}
+    {{.Description}}
+    Price {{.Price}}
+    {{end}}
+{{end}}
+{{else}}
+NO MENU 😔
+{{end}}
