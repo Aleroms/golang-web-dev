@@ -13,5 +13,6 @@ func main() {
 	}
 	defer conn.Close()
 
+	// writing to the connection
 	fmt.Fprintln(conn, "I dialed you.")
 }
