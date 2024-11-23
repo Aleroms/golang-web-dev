@@ -1,9 +1,11 @@
 package main
 
 import (
+	"fmt"
 	"html/template"
 	"log"
 	"net/http"
+	"os"
 )
 
 type hotdog int
@@ -25,5 +27,6 @@ func init() {
 
 func main() {
 	var d hotdog
+	fmt.Fprintln(os.Stdout,"Listening on http://localhost:8080")
 	http.ListenAndServe(":8080", d)
 }
